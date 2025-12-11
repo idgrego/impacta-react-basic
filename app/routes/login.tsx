@@ -1,20 +1,27 @@
 import type React from "react";
 import InputField from "~/components/input-field"
+import { login } from 'app/services/account.service'
+import { useNavigate } from "react-router";
 
-export default function Login() {
+export default function LoginPage() {
+
+    const navigate = useNavigate()
+
+
     function submit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
         const formData = new FormData(e.currentTarget);
 
         // Pega valores por nome
-        const username = formData.get("username");
-        const password = formData.get("password");
-        alert(`${username}, sua senha é ${password}`);
+        const username = formData.get("username")?.valueOf() as string;
+        const password = formData.get("password")?.valueOf() as string;
+
+        login(username, password).then(result => navigate('users')).catch(err => alert('erro'))
     }
 
     function changed(e: React.ChangeEvent<HTMLInputElement>) {
-        // não entendi a necessidade disso
-        console.log('changed', e.target.name, e.target.value, e)
+        // não entendi a necessidade disso. deixei só pelo exemplo de uso
+        // console.log('changed', e.target.name, e.target.value, e)
     }
 
     return (
