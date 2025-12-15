@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import InputField from "~/components/input-field"
-import * as service from 'app/services/user.service'
-import type { User } from "~/models/user";
+import * as service from 'app/services/role.service'
+import type { Role } from "~/models/role";
 import { useNavigate } from "react-router";
 import LoginIsRequiredError from "~/exceptions/LoginIsRequiredError";
 
-export default function UserCreatePage() {
-    const [errorField, setErrorField] = useState('');
+export default function RoleCreatePage() {
     const [errorForm, setErrorForm] = useState('');
     const navigate = useNavigate()
 
@@ -16,36 +15,22 @@ export default function UserCreatePage() {
 
         const formData = new FormData(e.currentTarget);
         const name = formData.get("name");
-        const username = formData.get("username");
-        const password = formData.get("password");
-        const confirm = formData.get("confirm");
+        const description = formData.get("description");
 
-        if (password !== confirm) {
-            setErrorField("As senhas não conferem.");
-            return
-        }
-
-        setErrorField(''); // Limpa o erro se as senhas forem iguais
-
-        service.create({ name, username, password } as User)
-            .then((data: User) => navigate('/users'))
+        service.create({ name, description } as Role)
+            .then((data: Role) => navigate('/roles'))
             .catch(err => {
                 if (err instanceof LoginIsRequiredError || err.status === 401) navigate('/')
                 else setErrorForm(`${err.status} | ${err.message}`)
             })
     }
 
-    function handleConfirmChange(e: React.ChangeEvent<HTMLInputElement>) {
-        // Limpa o erro assim que o usuário começa a digitar novamente
-        setErrorField('');
-    }
-
     return (
-        <div className="flex items-center justify-center p-4">
-            <div className="relative w-full max-w-md bg-white p-8 rounded-xl shadow-xl space-y-6 border border-gray-200">
+        <main className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
+            <div className="relative w-full max-w-md bg-white p-8 rounded-xl shadow-2xl space-y-6 border border-gray-200">
                 <button
                     type="button"
-                    onClick={() => navigate('/users')}
+                    onClick={() => navigate('/roles')}
                     className="icon-button absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
                     title="Cancel and go back"
                 >
@@ -54,17 +39,12 @@ export default function UserCreatePage() {
                     </svg>
                 </button>
                 <h1 className="text-3xl font-extrabold text-gray-900 text-center border-b pb-4">
-                    Add user
+                    Add role
                 </h1>
 
                 <form onSubmit={submit} className="space-y-4">
                     <InputField id="name" name="name" placeholder="Name" required />
-                    <InputField id="username" name="username" placeholder="Username" required />
-                    <InputField id="password" name="password" placeholder="Password" required type="password" />
-                    <div>
-                        <InputField id="confirm" name="confirm" placeholder="Confirm password" required type="password" onChange={handleConfirmChange} />
-                        {errorField && <p className="text-red-500 text-sm mt-1">{errorField}</p>}
-                    </div>
+                    <InputField id="description" name="description" placeholder="Description" required />
 
                     {errorForm && <p className="text-red-500 text-sm mt-1">{errorForm}</p>}
 
@@ -92,6 +72,6 @@ export default function UserCreatePage() {
                     </div>
                 </form>
             </div>
-        </div>
+        </main>
     );
 }

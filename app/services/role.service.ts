@@ -1,4 +1,4 @@
-import type { User } from "~/models/user"
+import type { Role } from "~/models/role"
 import * as accountService from 'app/services/account.service'
 import LoginIsRequiredError from "~/exceptions/LoginIsRequiredError"
 
@@ -15,46 +15,46 @@ function getHeaders() {
 
 export async function list() {
 
-    const result = await fetch(`${BASE_URL_API}/users`, {
+    const result = await fetch(`${BASE_URL_API}/roles`, {
         headers: getHeaders(),
         method: 'get'
     })
 
-    return await handleResponse<User[]>(result)
+    return await handleResponse<Role[]>(result)
 }
 
 export async function get(id: number) {
 
-    const result = await fetch(`${BASE_URL_API}/users/${id}`, {
+    const result = await fetch(`${BASE_URL_API}/roles/${id}`, {
         headers: getHeaders(),
         method: 'get'
     })
 
-    return await handleResponse<User>(result)
+    return await handleResponse<Role>(result)
 }
 
-export async function create(user: User) {
-    const result = await fetch(`${BASE_URL_API}/users`, {
+export async function create(user: Role) {
+    const result = await fetch(`${BASE_URL_API}/roles`, {
         headers: getHeaders(),
         method: 'post',
         body: JSON.stringify(user)
     })
 
-    return await handleResponse<User>(result)
+    return await handleResponse<Role>(result)
 }
 
-export async function edit(user: User) {
-    const result = await fetch(`${BASE_URL_API}/users/${user.id}`, {
+export async function edit(user: Role) {
+    const result = await fetch(`${BASE_URL_API}/roles/${user.id}`, {
         headers: getHeaders(),
         method: 'put',
         body: JSON.stringify(user)
     })
 
-    return await handleResponse<User>(result)
+    return await handleResponse<Role>(result)
 }
 
 export async function del(id: number) {
-    const result = await fetch(`${BASE_URL_API}/users/${id}`, {
+    const result = await fetch(`${BASE_URL_API}/roles/${id}`, {
         headers: getHeaders(),
         method: 'delete'
     })

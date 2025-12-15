@@ -13,3 +13,9 @@ body {
     color-scheme: dark;
   }
 }
+
+@layer components {
+  .icon-button:hover svg {
+    stroke-width: 2;
+  }
+}
