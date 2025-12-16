@@ -40,7 +40,7 @@ export default function UserDeletePage() {
     }
 
     return (
-        <main className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
+        <div className="flex items-center justify-center p-4">
             <div className="relative w-full max-w-md bg-white p-8 rounded-xl shadow-2xl space-y-6 border border-gray-200">
                 <button
                     type="button"
@@ -77,6 +77,6 @@ export default function UserDeletePage() {
                     </div>
                 </form>
             </div>
-        </main>
+        </div>
     );
 }

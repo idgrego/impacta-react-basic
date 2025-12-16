@@ -80,7 +80,7 @@ export default function UserEditPage() {
     }
 
     return (
-        <main className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
+        <div className="flex items-center justify-center p-4">
             <div className="relative w-full max-w-md bg-white p-8 rounded-xl shadow-xl space-y-6 border border-gray-200">
                 <button
                     type="button"
@@ -104,6 +104,11 @@ export default function UserEditPage() {
                         <InputField id="confirm" name="confirm" placeholder="Confirm password" type="password" onChange={handleConfirmChange} />
                         {errorField && <p className="text-red-500 text-sm mt-1">{errorField}</p>}
                     </div>
+
+                    {/* 
+                        TODO: Adicionar aqui uma lista com todos os roles cadastrados.
+                        Cada registro do role deve estar indicado (com um checkbox) se o usuário pertence ou não ao papél
+                    */}
 
                     {errorForm && <p className="text-red-500 text-sm mt-1">{errorForm}</p>}
 
@@ -132,6 +137,6 @@ export default function UserEditPage() {
                     </div>
                 </form>
             </div>
-        </main>
+        </div>
     );
 }

@@ -21,7 +21,7 @@ export default function UserListPage() {
     }, [])
 
     return (
-        <main className="min-h-screen bg-gray-100 p-4 sm:p-8 lg:p-12">
+        <div className="p-4 sm:p-8 lg:p-12">
             <div className="max-w-4xl mx-auto bg-white shadow-xl rounded-xl overflow-hidden border border-gray-200">
 
                 <header className="flex justify-between items-center p-6 bg-blue-600 text-white border-b border-blue-700">
@@ -76,6 +76,6 @@ export default function UserListPage() {
                 </footer>
 
             </div>
-        </main>
+        </div>
     );
 }

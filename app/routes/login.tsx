@@ -7,7 +7,6 @@ export default function LoginPage() {
 
     const navigate = useNavigate()
 
-
     function submit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
         const formData = new FormData(e.currentTarget);
@@ -35,6 +34,5 @@ export default function LoginPage() {
                 </form>
             </div>
         </main>
-
     );
 }

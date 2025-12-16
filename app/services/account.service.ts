@@ -4,8 +4,8 @@ const KEY_LOGGED_USER = 'AUTH@LOGGED_KEY'
 const BASE_URL_API = 'http://localhost:3030'
 
 
-function setLoggedUser(user: User) {
-    sessionStorage.setItem(KEY_LOGGED_USER, JSON.stringify(user))
+function setLoggedUser(user: User | null) {
+    sessionStorage.setItem(KEY_LOGGED_USER, user === null ? '' : JSON.stringify(user))
 }
 
 export function getLoggedUser() {
@@ -29,4 +29,8 @@ export async function login(username: string, password: string) {
         }
     }
     return false
+}
+
+export async function logout() {
+    setLoggedUser(null)
 }
