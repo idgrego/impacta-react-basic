@@ -13,7 +13,7 @@ export default function RootLayoutPage() {
     return (
 
         <main className="min-h-screen bg-gray-100">
-            <nav className="flex py-3">
+            <nav className="flex justify-center gap-4 py-3">
                 <NavLink
                     to="/users"
                     className={({ isActive }) =>
@@ -36,7 +36,7 @@ export default function RootLayoutPage() {
                 </NavLink>
                 <button onClick={exit}
                     type="button"
-                    className="py-3 px-3 mx-1 flex items-center justify-center gap-2 bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors duration-200 shadow-md transform hover:scale-[1.01]"
+                    className="flex items-center justify-center gap-2 bg-gray-200 text-gray-700 py-3 px-3 mx-1 rounded-xl font-semibold hover:bg-gray-300 transition-colors duration-200 shadow-md"
                 >
                     Logout
                 </button>

@@ -27,14 +27,9 @@ export default function UserListPage() {
                 <header className="flex justify-between items-center p-6 bg-blue-600 text-white border-b border-blue-700">
                     <span className="text-3xl font-bold">List of users</span>
 
-                    <span>
-                        <Link to="/roles"
-                            className="bg-white text-blue-600 font-semibold py-2 px-4 rounded-lg shadow-lg hover:bg-blue-50 transition-all duration-200 ease-in-out transform hover:scale-[1.03]"
-                        >Roles</Link>&nbsp;
-                        <Link to="create"
-                            className="bg-white text-blue-600 font-semibold py-2 px-4 rounded-lg shadow-lg hover:bg-blue-50 transition-all duration-200 ease-in-out transform hover:scale-[1.03]"
-                        >➕ Add user</Link>
-                    </span>
+                    <Link to="create"
+                        className="bg-white text-blue-600 font-semibold py-2 px-4 rounded-lg shadow-lg hover:bg-blue-50 transition-all duration-200 ease-in-out transform hover:scale-[1.03]"
+                    >➕ Add user</Link>
                 </header>
 
                 <div className="p-6 space-y-3">
