@@ -123,7 +123,7 @@ export default function UserEditPage() {
 
                     <div id="users-fields" className="max-w-[50%] px-3">
                         <InputField id="name" name="name" placeholder="Name" required value={user.name} onChange={handleUserChange} />
-                        <InputField id="username" name="username" placeholder="Username" required value={user.username} onChange={handleUserChange} />
+                        <InputField id="username" name="username" placeholder="Username" readOnly value={user.username} />
                         <InputField id="password" name="password" placeholder="Password" type="password" />
                         <div>
                             <InputField id="confirm" name="confirm" placeholder="Confirm password" type="password" onChange={handleConfirmChange} />
@@ -132,7 +132,7 @@ export default function UserEditPage() {
                         <p id="password-note" className="text-sm text-gray-500 mt-1">Note: the "password" and "confirm" fields should only be filled in if you want to change your password; otherwise, leave them blank.</p>
                     </div>
 
-                    <div id="users-roles" className="max-w-[50%] px-3">
+                    <div id="users-roles" className="list-container max-w-[50%] px-3 w-full">
                         {
                             roles?.map((u: Role, idx: number) => {
 

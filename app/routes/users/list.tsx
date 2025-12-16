@@ -32,7 +32,7 @@ export default function UserListPage() {
                     >➕ Add user</Link>
                 </header>
 
-                <div className="p-6 space-y-3">
+                <div className="list-container p-6 space-y-3">
                     {
                         users?.map((u: User, idx: number) => {
                             return (

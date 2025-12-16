@@ -31,7 +31,7 @@ export default function RoleListPage() {
                     >➕ Add role</Link>
                 </header>
 
-                <div className="p-6 space-y-3">
+                <div className="list-container p-6 space-y-3">
                     {
                         roles?.map((u: Role, idx: number) => {
                             return (

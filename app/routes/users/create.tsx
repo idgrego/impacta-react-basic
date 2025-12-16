@@ -73,7 +73,7 @@ export default function UserCreatePage() {
                         </div>
                     </div>
 
-                    <div id="users-roles" className="max-w-[50%] px-3">
+                    <div id="users-roles" className="list-container max-w-[50%] px-3 w-full">
                         {
                             roles?.map((u: Role, idx: number) => {
                                 return (

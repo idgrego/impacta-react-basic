@@ -24,4 +24,9 @@ body {
   .icon-button:hover svg {
     stroke-width: 2;
   }
+
+  .list-container {
+    max-height: calc(100dvh - 330px);
+    overflow-y: auto;
+  }
 }

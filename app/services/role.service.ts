@@ -33,21 +33,21 @@ export async function get(id: number) {
     return await handleResponse<Role>(result)
 }
 
-export async function create(user: Role) {
+export async function create(obj: Role) {
     const result = await fetch(`${BASE_URL_API}/roles`, {
         headers: getHeaders(),
         method: 'post',
-        body: JSON.stringify(user)
+        body: JSON.stringify(obj)
     })
 
     return await handleResponse<Role>(result)
 }
 
-export async function edit(user: Role) {
-    const result = await fetch(`${BASE_URL_API}/roles/${user.id}`, {
+export async function edit(obj: Role) {
+    const result = await fetch(`${BASE_URL_API}/roles/${obj.id}`, {
         headers: getHeaders(),
         method: 'put',
-        body: JSON.stringify(user)
+        body: JSON.stringify(obj)
     })
 
     return await handleResponse<Role>(result)
